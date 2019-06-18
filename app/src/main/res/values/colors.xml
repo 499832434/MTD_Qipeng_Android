@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="bottom_text_color">#999999</color>
+    <color name="bottom_text_color_selected">#64AC88</color>
+    <!--标题栏背景颜色-->
+    <!--列表的title字体颜色-->
+    <!--列表的time字体颜色-->
+    <color name="home_line">#f2f2f2</color>
+    <integer-array name="gplus_colors">
+        <item>@color/gplus_color_1</item>
+        <item>@color/gplus_color_2</item>
+        <item>@color/gplus_color_3</item>
+        <item>@color/gplus_color_4</item>
+    </integer-array>
+    <color name="gplus_color_1">#3e802f</color>
+    <color name="gplus_color_2">#427fed</color>
+    <color name="gplus_color_3">#b23424</color>
+    <color name="gplus_color_4">#f4b400</color>
+
+    <color name="grey">#cccccc</color>
+    <color name="white">#ffffff</color>
+
+
+    <!--意见反馈-->
+    <color name="idea_back_success_text">#666666</color>
+    <color name="idea_back_background">#F3F3F3</color>
+
+    <!--设置-->
+    <color name="setting_text">#161616</color>
+
+    <!--个人中心-->
+
+    <!--云收藏-->
+
+    <!--推送设置-->
+
+    <!--电话色值-->
+
+    <color name="title_line_color">#e1e1e1</color><!--标题栏底线颜色-->
+    <!--标题栏字体颜色-->
+
+    <color name="collect_normal_color">#333333</color>
+
+
+    <color name="news_text_normal" tools:ignore="MissingDefaultResource">#A6A6A6</color>
+
+    <color name="theme_color">#4B9BF7</color>
+
+    <color name="news_follow">#B5B5B5</color>
 </resources>
