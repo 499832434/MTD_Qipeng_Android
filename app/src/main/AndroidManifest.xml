@@ -53,7 +53,6 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:excludeFromRecents="true"
             android:taskAffinity="com.zibo.qipeng.asphalt.first"
             android:theme="@style/AppWelcome">
             <intent-filter>
@@ -76,6 +75,15 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".activity.home.HomeStorageActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.home.HomeStorageDetailActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.home.HomeLakeActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.home.HomeLakeContentActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name=".activity.MapActivity"

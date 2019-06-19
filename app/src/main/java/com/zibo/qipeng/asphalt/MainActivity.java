@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -19,7 +21,9 @@ import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 import com.zibo.qipeng.asphalt.entity.TabEntity;
 import com.zibo.qipeng.asphalt.fragment.SimpleCardFragment;
+import com.zibo.qipeng.asphalt.fragment.cat.CatFragment;
 import com.zibo.qipeng.asphalt.fragment.home.HomeFragment;
+import com.zibo.qipeng.asphalt.fragment.home.stroage.StroageCommodityFragment;
 import com.zibo.qipeng.asphalt.initapp.InitApp;
 import com.zibo.qipeng.asphalt.utils.CookieStringRequest;
 import com.zibo.qipeng.asphalt.utils.Logger;
@@ -149,12 +153,12 @@ public class MainActivity extends BaseActivity {
 
         tl_main = findViewById(R.id.tl_main);
         vp_main = findViewById(R.id.vp_main);
-        vp_main.setOffscreenPageLimit(3);
+        vp_main.setOffscreenPageLimit(5);
 
         mFragments.add(new HomeFragment());
         mFragments.add(SimpleCardFragment.getInstance("地图"));
         mFragments.add(SimpleCardFragment.getInstance("投资"));
-        mFragments.add(SimpleCardFragment.getInstance("购物车"));
+        mFragments.add(new CatFragment());
         mFragments.add(SimpleCardFragment.getInstance("我的"));
 
         for (int i = 0; i < mTitles.length; i++) {
@@ -215,5 +219,21 @@ public class MainActivity extends BaseActivity {
         public Fragment getItem(int position) {
             return mFragments.get(position);
         }
+    }
+
+    private long mExitTime = 0;
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                Toast.makeText(this, "连续点击返回键将退出客户端", Toast.LENGTH_SHORT).show();
+                mExitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

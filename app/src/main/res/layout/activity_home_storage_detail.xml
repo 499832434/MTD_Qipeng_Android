@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/view_top"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/gplus_color_1" />
+
+    <com.zibo.qipeng.asphalt.view.CustomTitleBar
+        android:id="@+id/ctb"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        custom:text="宁夏固原库区" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@mipmap/banner"
+        android:scaleType="fitXY"
+        />
+    <com.flyco.tablayout.SlidingTabLayout
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/stl_storage"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        tl:layout_scrollFlags="scroll|enterAlways"
+        tl:tl_indicator_color="@color/gplus_color_1"
+        tl:tl_indicator_corner_radius="1.5dp"
+        tl:tl_indicator_height="3dp"
+        tl:tl_indicator_width_equal_title="false"
+        tl:tl_tab_padding="10dp"
+        tl:tl_tab_space_equal="false"
+        tl:tl_textSelectColor="@color/black"
+        tl:tl_textUnselectColor="@color/black"
+        tl:tl_textsize="13sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ececec"/>
+    <android.support.v4.view.ViewPager
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:id="@+id/vp_storage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

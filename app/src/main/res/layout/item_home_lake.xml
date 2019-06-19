@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+   android:padding="10dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@mipmap/hyzx"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:textSize="14sp"
+        android:gravity="top"
+        android:textColor="@color/black"
+        android:text="行业资讯"/>
+
+    <TextView
+        android:gravity="bottom"
+        android:id="@+id/tv_content"
+        android:layout_below="@+id/tv_title"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/iv"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:textSize="12sp"
+        android:text="沥青路边和沥青改性剂"/>
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_alignParentRight="true"
+        android:gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:textSize="12sp"
+        android:text="2019-06-02"/>
+</RelativeLayout>

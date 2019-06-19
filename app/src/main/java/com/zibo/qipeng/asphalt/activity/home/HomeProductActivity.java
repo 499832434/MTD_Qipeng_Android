@@ -1,5 +1,6 @@
 package com.zibo.qipeng.asphalt.activity.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.amap.api.maps.model.animation.Animation;
 import com.amap.api.maps.model.animation.ScaleAnimation;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.zibo.qipeng.asphalt.BaseActivity;
 import com.zibo.qipeng.asphalt.R;
 import com.zibo.qipeng.asphalt.adapter.home.HomeRecommendAdapter;
@@ -79,6 +81,12 @@ public class HomeProductActivity extends BaseActivity {
         adapter = new HomeRecommendAdapter(HomeProductActivity.this, R.layout.item_home_recommend, list);
         rv_home_recommend.setAdapter(adapter);
         rv_home_recommend.setLayoutManager(new GridLayoutManager(HomeProductActivity.this, 2));
+        adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                startActivity(new Intent(HomeProductActivity.this, HomeAsphaltActivity.class));
+            }
+        });
     }
 
 

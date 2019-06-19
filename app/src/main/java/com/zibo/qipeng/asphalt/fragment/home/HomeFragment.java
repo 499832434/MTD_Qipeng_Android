@@ -32,6 +32,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 import com.zibo.qipeng.asphalt.MainActivity;
 import com.zibo.qipeng.asphalt.R;
 import com.zibo.qipeng.asphalt.activity.home.HomeAsphaltActivity;
+import com.zibo.qipeng.asphalt.activity.home.HomeLakeActivity;
 import com.zibo.qipeng.asphalt.activity.home.HomeProductActivity;
 import com.zibo.qipeng.asphalt.activity.home.HomeStorageActivity;
 import com.zibo.qipeng.asphalt.adapter.home.HomeAdapter;
@@ -208,6 +209,7 @@ public class HomeFragment extends Fragment {
                 startActivity(new Intent(mActivity,HomeStorageActivity.class));
                 break;
             case R.id.ll_lake:
+                startActivity(new Intent(mActivity,HomeLakeActivity.class));
                 break;
             case R.id.ll_asphalt:
                 startActivity(new Intent(mActivity,HomeAsphaltActivity.class));

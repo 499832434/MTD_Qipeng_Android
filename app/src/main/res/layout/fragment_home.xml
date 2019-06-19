@@ -15,10 +15,12 @@
             android:orientation="vertical"
             >
 
-            <View
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:background="@color/theme_color" />
+                android:src="@mipmap/banner"
+                android:scaleType="fitXY"
+                />
 
             <LinearLayout
                 android:id="@+id/ll_asphalt"

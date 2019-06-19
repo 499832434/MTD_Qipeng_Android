@@ -49,4 +49,5 @@
     <color name="theme_color">#4B9BF7</color>
 
     <color name="news_follow">#B5B5B5</color>
+    <color name="grey_light">#ececec</color>
 </resources>
