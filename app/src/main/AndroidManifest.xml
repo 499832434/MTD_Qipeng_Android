@@ -86,6 +86,15 @@
             android:name=".activity.home.HomeLakeContentActivity"
             android:screenOrientation="portrait"></activity>
         <activity
+            android:name=".activity.login.LoginActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.login.RegisterActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.account.VipSetActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
             android:name=".activity.MapActivity"
             android:screenOrientation="portrait"></activity>
     </application>

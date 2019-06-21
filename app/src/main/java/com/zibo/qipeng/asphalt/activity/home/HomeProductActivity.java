@@ -1,20 +1,26 @@
 package com.zibo.qipeng.asphalt.activity.home;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.AMapOptions;
+import com.amap.api.maps.AMapUtils;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.amap.api.maps.model.NaviPara;
 import com.amap.api.maps.model.animation.Animation;
 import com.amap.api.maps.model.animation.ScaleAnimation;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -34,7 +40,7 @@ import butterknife.OnClick;
  *
  * @author zongshuo ps: good luck ,ai ni o.
  */
-public class HomeProductActivity extends BaseActivity {
+public class HomeProductActivity extends BaseActivity implements AMap.OnMarkerClickListener, AMap.OnInfoWindowClickListener {
 
 
     @BindView(R.id.rv_home_recommend)
@@ -66,12 +72,29 @@ public class HomeProductActivity extends BaseActivity {
         LatLng latLng = new LatLng(37.524283, 117.911697);
         MarkerOptions options = new MarkerOptions();
         options.position(latLng);
+        options.title("位置:");
+        options.snippet("山东卓创有限公司");
+
+//        TextView textView = new TextView(getApplicationContext());
+//        textView.setText("山东卓创有限公司");
+//        textView.setGravity(Gravity.CENTER);
+//        textView.setTextColor(Color.BLACK);
+//        textView.setBackgroundResource(R.mipmap.custom_info_bubble);
+//        options.icon(BitmapDescriptorFactory.fromView(textView));
+
+
         Marker marker = aMap.addMarker(options);
         Animation markerAnimation = new ScaleAnimation(0, 1, 0, 1); //初始化生长效果动画
         markerAnimation.setDuration(1000);  //设置动画时间 单位毫秒
         marker.setAnimation(markerAnimation);
         marker.startAnimation();
+        marker.showInfoWindow();
         aMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
+
+
+
+
+
 
 
         for (int i = 0; i < 10; i++) {
@@ -104,6 +127,8 @@ public class HomeProductActivity extends BaseActivity {
 
         if (aMap == null) {
             aMap = map.getMap();
+            aMap.setOnMarkerClickListener(this);
+            aMap.setOnInfoWindowClickListener(this);
         }
 
     }
@@ -144,6 +169,42 @@ public class HomeProductActivity extends BaseActivity {
                 break;
             case R.id.b_buy:
                 break;
+        }
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        // 构造导航参数
+        NaviPara naviPara = new NaviPara();
+        // 设置终点位置
+        naviPara.setTargetPoint(marker.getPosition());
+        // 设置导航策略，这里是避免拥堵
+        naviPara.setNaviStyle(AMapUtils.DRIVING_AVOID_CONGESTION);
+        try {
+            // 调起高德地图导航
+            AMapUtils.openAMapNavi(naviPara, getApplicationContext());
+        } catch (com.amap.api.maps.AMapException e) {
+            // 如果没安装会进入异常，调起下载页面
+            AMapUtils.getLatestAMapApp(getApplicationContext());
+        }
+//        aMap.clear();
+        return false;
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        // 构造导航参数
+        NaviPara naviPara = new NaviPara();
+        // 设置终点位置
+        naviPara.setTargetPoint(marker.getPosition());
+        // 设置导航策略，这里是避免拥堵
+        naviPara.setNaviStyle(AMapUtils.DRIVING_AVOID_CONGESTION);
+        try {
+            // 调起高德地图导航
+            AMapUtils.openAMapNavi(naviPara, getApplicationContext());
+        } catch (com.amap.api.maps.AMapException e) {
+            // 如果没安装会进入异常，调起下载页面
+            AMapUtils.getLatestAMapApp(getApplicationContext());
         }
     }
 }

@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <com.zibo.qipeng.asphalt.view.CustomViewPager
         android:id="@+id/vp_main"
         android:layout_width="match_parent"
@@ -31,4 +32,9 @@
         tl:tl_textUnselectColor="#AFAFAF"
         tl:tl_textsize="12sp"
         />
+    <Button
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button5"/>
 </RelativeLayout>

@@ -1,5 +1,6 @@
 package com.zibo.qipeng.asphalt;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -19,11 +21,14 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
+import com.zibo.qipeng.asphalt.activity.login.LoginActivity;
 import com.zibo.qipeng.asphalt.entity.TabEntity;
 import com.zibo.qipeng.asphalt.fragment.SimpleCardFragment;
+import com.zibo.qipeng.asphalt.fragment.account.AccountFragment;
 import com.zibo.qipeng.asphalt.fragment.cat.CatFragment;
 import com.zibo.qipeng.asphalt.fragment.home.HomeFragment;
 import com.zibo.qipeng.asphalt.fragment.home.stroage.StroageCommodityFragment;
+import com.zibo.qipeng.asphalt.fragment.map.MapFragment;
 import com.zibo.qipeng.asphalt.initapp.InitApp;
 import com.zibo.qipeng.asphalt.utils.CookieStringRequest;
 import com.zibo.qipeng.asphalt.utils.Logger;
@@ -66,13 +71,12 @@ public class MainActivity extends BaseActivity {
         checkPermission();
 
         initView();
-//        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Logger.e("aaa","5555");
-//                getList(1,108);
-//            }
-//        });
+        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getList(1,94);
+            }
+        });
     }
 
 
@@ -156,10 +160,10 @@ public class MainActivity extends BaseActivity {
         vp_main.setOffscreenPageLimit(5);
 
         mFragments.add(new HomeFragment());
-        mFragments.add(SimpleCardFragment.getInstance("地图"));
+        mFragments.add(new MapFragment());
         mFragments.add(SimpleCardFragment.getInstance("投资"));
         mFragments.add(new CatFragment());
-        mFragments.add(SimpleCardFragment.getInstance("我的"));
+        mFragments.add(new AccountFragment());
 
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));
@@ -169,6 +173,11 @@ public class MainActivity extends BaseActivity {
         tl_main.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
+//                if(position==3||position==4){
+//                    if(TextUtils.isEmpty(getUserInfo(0))){
+//                        startActivity(new Intent(MainActivity.this,LoginActivity.class));
+//                    }
+//                }
                 vp_main.setCurrentItem(position);
             }
 
