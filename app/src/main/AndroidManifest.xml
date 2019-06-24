@@ -51,7 +51,8 @@
             android:value="670fd7e3f4cfe7ebd2534adf37d2887d" />
 
         <activity
-            android:name=".MainActivity"
+            android:excludeFromRecents="true"
+            android:name=".QipengFirstActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:taskAffinity="com.zibo.qipeng.asphalt.first"
             android:theme="@style/AppWelcome">
@@ -61,9 +62,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity-->
-            <!--android:name=".MainActivity"-->
-            <!--android:screenOrientation="portrait"></activity>-->
+        <activity
+            android:name=".QipengSplashActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".activity.TestActivity"
             android:screenOrientation="portrait"></activity>

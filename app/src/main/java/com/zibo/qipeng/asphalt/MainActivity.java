@@ -55,8 +55,8 @@ public class MainActivity extends BaseActivity {
     private String[] mTitles = {"首页", "地图","投资","购物车", "我的"};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
     private int[] mIconSelectIds = {
-            R.mipmap.ckd, R.mipmap.ckd,
-            R.mipmap.ckd, R.mipmap.ckd, R.mipmap.ckd,};
+            R.mipmap.sy, R.mipmap.dt,
+            R.mipmap.tz,R.mipmap.gwc,R.mipmap.wd};
     private int[] mIconUnselectIds = {
             R.mipmap.sy, R.mipmap.dt,
             R.mipmap.tz,R.mipmap.gwc,R.mipmap.wd};
@@ -68,7 +68,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        checkPermission();
 
         initView();
         findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
@@ -80,25 +79,6 @@ public class MainActivity extends BaseActivity {
     }
 
 
-    private void checkPermission() {
-        XXPermissions.with(this)
-                //.constantRequest() //可设置被拒绝后继续申请，直到用户授权或者永久拒绝
-                //.permission(Permission.SYSTEM_ALERT_WINDOW, Permission.REQUEST_INSTALL_PACKAGES) //支持请求6.0悬浮窗权限8.0请求安装权限
-                .permission(Permission.READ_EXTERNAL_STORAGE,
-                        Permission.WRITE_EXTERNAL_STORAGE) //不指定权限则自动获取清单中的危险权限
-                .request(new OnPermission() {
-
-                    @Override
-                    public void hasPermission(List<String> granted, boolean isAll) {
-
-                    }
-
-                    @Override
-                    public void noPermission(List<String> denied, boolean quick) {
-
-                    }
-                });
-    }
 
 
     private void getList(final int page, final int end) {
@@ -173,11 +153,14 @@ public class MainActivity extends BaseActivity {
         tl_main.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelect(int position) {
-//                if(position==3||position==4){
-//                    if(TextUtils.isEmpty(getUserInfo(0))){
-//                        startActivity(new Intent(MainActivity.this,LoginActivity.class));
-//                    }
-//                }
+                if(position==3||position==4){
+                    if(TextUtils.isEmpty(getUserInfo(0))){
+                        startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                        vp_main.setCurrentItem(position);
+                        vp_main.setCurrentItem(0);
+                        return;
+                    }
+                }
                 vp_main.setCurrentItem(position);
             }
 

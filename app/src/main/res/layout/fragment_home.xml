@@ -15,15 +15,39 @@
             android:orientation="vertical"
             >
 
-            <ImageView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@mipmap/banner"
-                android:scaleType="fitXY"
-                />
+                android:layout_height="180dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:src="@mipmap/banner"
+                    android:scaleType="fitXY"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:src="@mipmap/ic_home_logo"
+                    android:layout_marginTop="50dp"/>
+
+                <View
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_below="@+id/iv"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:background="@drawable/bg_home_search"/>
+            </RelativeLayout>
+
 
             <LinearLayout
                 android:id="@+id/ll_asphalt"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -41,13 +65,7 @@
                         android:scaleType="centerInside"
                         android:src="@mipmap/lq" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="沥青"
-                        android:textSize="14sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -64,13 +82,6 @@
                         android:scaleType="centerInside"
                         android:src="@mipmap/wl" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="物流"
-                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -87,13 +98,7 @@
                         android:scaleType="centerInside"
                         android:src="@mipmap/cc" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="仓储"
-                        android:textSize="14sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -110,13 +115,6 @@
                         android:scaleType="centerInside"
                         android:src="@mipmap/ljh" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="5dp"
-                        android:text="沥江湖"
-                        android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>
 
